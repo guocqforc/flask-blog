@@ -12,9 +12,11 @@ import user
 import pagination
 import settings
 from helper_functions import *
-
+from flask.ext.moment import Moment
 
 app = Flask('FlaskBlog')
+moment = Moment(app)
+
 md = Markdown(app)
 md.register_extension(GitHubGistExtension)
 md.register_extension(StrikeExtension)
