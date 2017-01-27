@@ -72,7 +72,8 @@
 		{%- block scripts -%}
 			<script src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-			{%- block additional_js -%}{%- endblock -%}
+			{{ moment.include_moment() }}
+            {%- block additional_js -%}{%- endblock -%}
 			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 		{%- endblock -%}
 	</body>
