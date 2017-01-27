@@ -1,7 +1,11 @@
 import pymongo
 import os
 
-CONNECTION_STRING = "mongodb://localhost"  # replace it with your settings
+CONNECTION_STRING = None  # replace it with your settings
+if not CONNECTION_STRING:
+    from debug_config import database
+    CONNECTION_STRING = database
+    
 CONNECTION = pymongo.MongoClient(CONNECTION_STRING)
 
 '''Leave this as is if you dont have other configuration'''
