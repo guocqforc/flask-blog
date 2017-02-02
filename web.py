@@ -96,8 +96,13 @@ def new_post():
         else:
             tags = cgi.escape(request.form.get('post-tags'))
             tags_array = extract_tags(tags)
+
+            post_short = request.form.get('post-short')
+            if not post_short:
+                post_short = post_full[:200]
+
             post_data = {'title': post_title,
-                         'preview': request.form.get('post-short'),
+                         'preview': post_short,
                          'body': post_full,
                          'tags': tags_array,
                          'author': session['user']['username']}
