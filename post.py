@@ -38,7 +38,7 @@ class Post:
                                               'body': post['body'],
                                               'preview': post['preview'],
                                               'date': post['date'],
-                                              'update': post['update'],
+                                              'update': post.get('update'),
                                               'permalink': post['permalink'],
                                               'tags': post['tags'],
                                               'author': post['author'],
