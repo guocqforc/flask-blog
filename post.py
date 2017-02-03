@@ -39,6 +39,7 @@ class Post:
                                               'preview': post['preview'],
                                               'date': post['date'],
                                               'update': post.get('update'),
+                                              'view_count': post.get('view_count') or 1,
                                               'permalink': post['permalink'],
                                               'tags': post['tags'],
                                               'author': post['author'],
@@ -59,6 +60,13 @@ class Post:
             self.response['error'] = 'Post not found..'
 
         return self.response
+
+    def update_view_count(self, permalink):
+        try:
+            self.collection.update_one({'permalink': permalink}, {'$inc': {'view_count': 1}})
+        except Exception, e:
+            self.print_debug_info(e, self.debug_mode)
+            # self.response['error'] = 'Post not found..'
 
     def get_post_by_id(self, post_id):
         self.response['error'] = None
