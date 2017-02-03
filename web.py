@@ -52,6 +52,8 @@ def single_post(permalink):
     post = postClass.get_post_by_permalink(permalink)
     if not post['data']:
         abort(404)
+    # 更新一下 访问量
+    postClass.update_view_count(permalink)
     return render_template('single_post.html', post=post['data'], meta_title=app.config['BLOG_TITLE'] + '::' + post['data']['title'])
 
 
@@ -130,6 +132,9 @@ def new_post():
                         flash(response['error'], 'error')
                     return redirect(url_for('posts'))
                 else:
+
+                    post['view_count'] = 1
+
                     response = postClass.create_new_post(post)
                     if response['error']:
                         error = True
