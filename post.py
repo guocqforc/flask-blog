@@ -122,6 +122,8 @@ class Post:
         del post_data['date']
         del post_data['permalink']
 
+        post_data['update'] = datetime.datetime.utcnow()
+
         try:
             self.collection.update(
                 {'_id': ObjectId(post_id)}, {"$set": post_data}, upsert=False)
@@ -157,7 +159,6 @@ class Post:
         post_data['preview'] = cgi.escape(post_data['preview'], quote=True)
         post_data['body'] = cgi.escape(post_data['body'], quote=True)
         post_data['date'] = datetime.datetime.utcnow()
-        post_data['update'] = datetime.datetime.utcnow()
         post_data['permalink'] = permalink
 
         return post_data
