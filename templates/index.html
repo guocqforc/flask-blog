@@ -13,9 +13,9 @@
 									<div class="col-lg-8">
 										<div class="page-header">
 											<h2><a href="{{ url_for('single_post', permalink=post['permalink']) }}">{{ post['title'] | safe }}</a></h2>
-											<p><span class="icon-time">&nbsp;</span><i>Posted on {{ moment( post['date']).format('YYYY-MM-DD HH:mm:ss') }} by {{ post['author'] }}</i>
+											<p><span class="icon-time">&nbsp;</span><i>Posted on {{ moment( post['date']).format('YYYYMMDD HH:mm') }} by {{ post['author'] }}</i>
                                                 {% if post.get('update') %}
-                                                <span class="icon-refresh">&nbsp;</span><i>Update:{{  moment( post.get('update')).format('YYYY-MM-DD HH:mm:ss') }}</i>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-refresh">&nbsp;</span><i>Update:{{  moment( post.get('update')).format('YYYYMMDD HH:mm:ss') }}</i>
                                                 {% endif %}
                                             </p>
 										</div>

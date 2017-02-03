@@ -7,10 +7,10 @@
 				<div class="col-lg-8">
 					<div class="page-header">
 						<h2>{{ post['title'] | safe }}</h2>
-						<p><span class="icon-time">&nbsp;</span><i>Posted on {{ moment( post['date']).format('YYYY-MM-DD HH:mm:ss') }} by {{ post['author'] }}</i>
+						<p><span class="icon-time">&nbsp;</span><i>Posted on {{ moment( post['date']).format('YYYYMMDD HH:mm') }} by {{ post['author'] }}</i>
                              {% if post.get('update') %}
-                            <span class="glyphicon glyphicon-list-alt">&nbsp;</span><i>Update:{{  moment( post.get('update')).format('YYYY-MM-DD HH:mm:ss') }}</i>
-                            {% endif %}
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-refresh">&nbsp;</span><i>Update:{{  moment( post.get('update')).format('YYYYMMDD HH:mm:ss') }}</i>
+                             {% endif %}
                         </p>
 						<div class="social row-fluid">
 				        </div>
