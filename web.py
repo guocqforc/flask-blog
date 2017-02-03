@@ -1,3 +1,4 @@
+#coding:utf-8
 import cgi
 import os
 from flask import Flask, render_template, abort, url_for, request, flash, session, redirect
