@@ -63,7 +63,7 @@ class Post:
 
     def update_view_count(self, permalink):
         try:
-            self.collection.update_one({'permalink': permalink}, {'$inc': {'view_count', 1}})
+            self.collection.update_one({'permalink': permalink}, {'$inc': {'view_count': 1}})
         except Exception, e:
             self.print_debug_info(e, self.debug_mode)
             # self.response['error'] = 'Post not found..'
